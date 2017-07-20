@@ -1,0 +1,453 @@
+/* Logicbox v4 - (c) Will Kelly 2009 ========================================= */
+
+
+body,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {
+	margin:0;padding:0;
+	font-size: 100%;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+	color: #999; 
+	font: 150% Arial,Helvetica,sans-serif;
+	line-height: 1.462;
+	background: #333;
+	height: 100%;
+	width: 100%;
+}
+
+h1 {
+	font-size: 1.041667em;
+	color: #FFF;
+}
+
+h2 {
+	font-size: 0.5833em;
+	color: #FFCC00;
+	text-transform: uppercase;
+}
+
+a:link,a:visited,a:focus,a:active {
+	color: #FFCC00;
+}
+a:hover {
+	text-decoration:none;
+}
+
+img {
+	border:none;
+}
+
+em {
+	font-style: normal;
+	color: #FFCC00;
+}
+
+.copyright {
+	color:#666;
+	/*letter-spacing: -1px;*/
+}
+
+.small {
+	font-size: 0.5em; !important;
+}
+.grey {
+	color:#CCC;
+}
+.mid-grey {
+	color:#666;
+}
+.yellow {
+	color: #FFCC00;
+}
+.white {
+	color: #FFF;
+}
+
+p.breadcrumbs {
+	font-size: 50%;
+	padding-top: 0.5em;
+	color: #FFF;
+}
+
+/* SIDEBAR =========== */
+
+div#bar {
+	position: absolute;
+	height: 100%;
+	width: 344px;/*1.0029em;*//*/24;*/
+	background: #000;
+	/*padding: 56px 22px 22px*/
+}
+	#bar h1 {
+		margin: 56px 20px 0;
+		/*margin: 2.24em 0.8em 0; /* / 25px */*/
+	}
+	#bar h2 { 
+		margin: 30px 20px 10px;
+		/*margin: 2.1428em 1.4286em 0.7143em;*/ /* / 14px */
+	}
+	
+	#bar p {
+		margin: 0 20px;
+		/*margin: 0 0.8333em;*/
+	}
+	
+	#bar img.logo {
+		position: absolute;
+		bottom: 16px;
+		left:90px;
+		display: block;
+		
+	}
+	/*
+	#bar ul {
+		list-style-type: none;
+		margin: 0 20px;
+		font-size: 12px;
+		padding: 0;
+	}
+	#bar ul li.tweet {
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#bar div#projects {
+		margin: 0 20px;
+		width: 304px;
+		height: 118px;
+		overflow: hidden;
+	}
+		div#projects ul {
+			margin: 0;
+			padding: 0;
+		}*/
+
+
+/* HOMEPAGE ========== 
+
+*/
+
+div#container {
+	height: 100%;
+	margin-left: 45%;
+}
+
+#bar-container {
+	position: absolute;
+	height: 100%;
+	width:343px;/*/24;*/
+}
+
+#p_home div#bar {
+	background: #000 url(../images/logo_bg.gif) bottom right no-repeat;
+	z-index:100;
+	border-left: 1px solid #333;
+}
+#p_home div#bar div {
+	background:#000;
+}
+#p_home div#bar p.small {
+	color: #FFF;
+	margin: 2em 0 0 1.6667em; /* / 12px */
+}
+
+div#contact ul {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	z-index:1;
+	margin: 0 55% 0 0;
+	background: #333;
+	list-style-type: none;
+	padding: 0;
+}
+	div#contact li {
+		float: left;
+		margin: 0 20px 0 0;
+		font-size:50%;
+		padding: 0;
+	}
+	
+/* Panels */
+	
+div#panels {
+	position: relative;
+	z-index:10;
+	top: 100px;/*;4.1667em*/
+	left: -22px;
+	height: 300px;
+	width: 272px;/**/;
+}
+
+	/* Common styles for tabs */
+	div.tab {
+		height: 75px;
+		width: 22px;
+		background-position: 0 0;
+		text-indent: -10000px;
+	}
+	div.tab:hover {
+		background-position: -22px 0;
+		cursor: pointer;
+	}
+	div.tab-1 {
+		background-image: url(../images/tab_about2.gif);
+	}
+	div.tab-2 {
+		height: 89px;
+		background-image: url(../images/tab_contact.gif);
+	}
+	
+	div.tabs {
+		float: left; /* instead of position: absolute which creates IE z-index issue */
+		width: 22px;
+		height: 155px;
+	}
+		/* Tabs in inactive position */
+		div.tabs div.tab {
+			position: absolute;
+			width:22px;
+		}
+			div.tabs div.tab-1 {
+				top: 0;
+				z-index: 14;
+			}
+			div.tabs div.tab-2 {
+				top: 75px;
+				height: 89px;
+				z-index: 13;
+			}
+			
+	div.panel {
+		position: absolute;
+		z-index: 11;
+	}
+	div.panel-last {
+		z-index: 12;
+	}
+		/* Tabs in active pos - moved by jQuery */
+		div.panel div.tab {
+			float: left;
+		}
+		div.panel div.tab-1 {}
+		div.panel div.tab-2 {
+			margin-top: 75px;
+		}
+
+		div.content {
+			margin-left: 22px;
+			width: 210px;/*;*/
+			background-color:#000000;
+			padding: 0.8334em;/*20px;*/
+			color: #FFF;
+		}
+			div.content p {
+				font-size: 75%;
+				padding-right:0.3334em;/*8px;*/
+				margin-bottom: 0.7em;
+			}
+			div.content p.box {
+				padding:0.3334em;/*8px;*/
+				border: 1px dashed #333;
+				font-size: 0.4583em;
+				margin-bottom: 0;
+			}
+
+/* social networks */
+div.content p.sn {
+	padding-right: 0;
+	margin-bottom:0;
+	position: relative;
+}
+	p.sn a.twitter {
+		outline: 0;
+	}
+	p.sn a.linkedin {
+		outline: 0;
+		position: absolute;
+		top: 0; right: -6px;
+	}
+
+	
+/* simplyScroll */
+
+.logicbox {
+	width: 344px; /**/
+	height: 118px;
+}
+.logicbox .simply-scroll-clip {
+	width: 344px; /**/
+	height: 118px
+}
+
+.logicbox .simply-scroll-list li {
+	float: left;
+	width: 304px;
+	height: 118px;
+}
+
+/* Tool Tip */
+
+#tooltip {
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	width: 130px;
+	padding: 8px;
+	border: 1px solid #666;
+	background-color: #000;
+	color: #FFF;
+	font-size: 0.5em;
+}
+
+/* Overlay */
+
+#overlay {
+	position: relative;
+	z-index: 1000;
+	width: 628px;/*;*/
+	height: 290px;/*;*/
+	display: none;
+}
+	#overlay-clip {
+		position: absolute;
+		overflow: hidden;
+		z-index: 1002;
+		width:0;
+		height:0;
+	}
+	#overlay-content {
+		position: absolute;
+		overflow: hidden; /* set in to auto in JS (firefox bug?) */
+		z-index: 1001;
+		background-color: #1b1b1b;
+		width:628px;/*;*/
+		height:290px;/*;*/
+		left: 0;
+		top: 0;
+	}
+	#overlay-close {
+		position: absolute;
+		z-index: 1003;
+		top: 0;
+		right: 0;
+		width: 22px;
+		height:22px;
+		overflow: hidden;
+		background-image: url(../images/overlay-close.gif);
+		background-position: 0 0;
+		
+	}
+	#overlay-close:hover {
+		background-position: 0 -22px;
+		cursor: pointer;
+	}
+
+.overlay {
+	display: none;
+	background-color: #1b1b1b;
+	padding: 18px 22px 22px 22px
+	/*padding: 0.75em 0.9167em 0.9167em;*/
+}
+/*
+#key2luxury {
+	background-image: url(../images/client_k2l_bg.jpg)
+}*/
+
+/* CONTENT ========================== 
+
+*/
+
+#wrapper {
+	margin: 0 auto;
+	width: 960px;
+	overflow: auto;
+	height: 100%;
+	background: #333; 
+}
+
+.sub #bar {
+	position: fixed;
+}
+
+.sub #bar p.small {
+	color: #FFF;
+}
+
+#main {
+	float: right;
+	/*margin: 56px 0 0 384px;*/
+	margin-top: 56px;
+	width: 576px;
+	color: #FFF;
+}
+	#main h2 {
+		padding: 4px 8px;
+		border: 1px solid #000;
+		margin-bottom: 1.2em;
+	}
+
+	#main p {
+		margin: 0 0 1.2em 0;
+	}
+	
+	#main ul, #main ol {
+		margin: 0 0 1.2em 0;
+	}
+	
+	#main li, #main p, #main th {
+		font-size: 75%;
+	}
+	#main p.small {
+		font-size: 50%;
+	}
+
+table.config {
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 1.2em;
+}
+	table.config th {
+		text-align: left;
+		font-size: 18px;
+		padding-left: 16px;
+	}
+	
+	table.config td {
+		padding: 3px 0;
+		border-top: 1px solid #555;
+		font-size: 12px;
+		padding-left: 16px;
+	}
+	
+	table.config td.grey {
+		color: #CCC;
+	} 
+	
+
+
+pre {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 13px;
+	background-color:#222;
+	padding: 16px;
+	margin-bottom: 1.2em;
+	overflow:auto;
+}
+pre .comment {
+	color:#999;
+}
+
+/* Tweet */
+
+.twitter-share-button {
+	float: right;
+	margin-left: 6px;
+}
+
+
